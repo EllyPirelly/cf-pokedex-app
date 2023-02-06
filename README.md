@@ -1,14 +1,16 @@
 # Simple Pokédex App
 
 ### What is this about?
-This Simple Pokédex App has been built as achievement 1 in [Career Foundry's Full-Stack Web Development Program](https://careerfoundry.com/en/courses/become-a-web-developer/)
+This simple Pokédex App will be build as Achievement 1 in [Career Foundry's Full-Stack Web Development Program](https://careerfoundry.com/en/courses/become-a-web-developer/) <br>
+It is a small web application, build with HTML, CSS and JavaScript, that loads
+data from the external [PokéAPI](https://pokeapi.co/) and enables the viewing of data points in detail.
 
 - TODO
 
 ### Tools / Requirements
 - Visual Studio Code
-- GitHub / GitHub Pages
-- TODO
+- GitHub
+- HTML5, CSS, JavaScript
 
 ### How to run this?
 At time of writing, there's no npm packages or a build workflow present
