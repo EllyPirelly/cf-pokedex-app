@@ -10,7 +10,7 @@ data from the external [PokéAPI](https://pokeapi.co/) and enables the viewing o
 ### Tools / Requirements
 - Visual Studio Code
 - GitHub
-- HTML5, CSS, JavaScript
+- HTML, CSS, JavaScript
 
 ### How to run this?
 At time of writing, there's no npm packages or a build workflow present
