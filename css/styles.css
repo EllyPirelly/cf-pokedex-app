@@ -1,3 +1,50 @@
+:root {
+  --black: #080808;
+  --white: #fff;
+  --neutral-200: #e5e5e5;
+
+  --background-color-light: rgba(37, 145, 251, 1);
+  --background-color-dark: rgba(0, 7, 128, 1);
+
+  --tile-color-bg: rgba(160, 64, 160, 0.5);
+
+  --green: #78C850;
+  --grass: #A8B820;
+  --sage: #A8A878;
+  --yellow: #F8D030;
+  --sand: #E0C068;
+  --orange: #F08030;
+  --purple: #A040A0;
+  --lilac: #A890F0;
+  --pink: #EE99AC;
+  --brightpink: #F85888;
+  --red: #C03028;
+  --blue: #6890F0;
+
+
+  --border-radius: 12px;
+}
+
+@font-face {
+  font-family: 'Pokemon Hollow Normal';
+  src: url('/fonts/pokemon_hollow.woff2') format('woff2'),
+       url('/fonts/pokemon_hollow.woff') format('woff'),
+       url('/fonts/pokemon_hollow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Pokemon Solid Normal';
+  src: url('/fonts/pokemon_solid.woff2') format('woff2'),
+       url('/fonts/pokemon_solid.woff') format('woff'),
+       url('/fonts/pokemon_solid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 html {
   box-sizing: border-box;
 }
@@ -11,8 +58,45 @@ html {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  background-image:
+    radial-gradient(circle farthest-corner at 40% 20%,
+    var(--background-color-light) 5%,
+    var(--background-color-dark) 70%);
+  color: var(--black);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Pokemon Solid Normal', sans-serif;
+  color: var(--white);
+  font-size: 52px;
+  letter-spacing: 0.1em;
+  transform: scale(1, 1.2);
+}
+
+.list-item {
+  background-color: var(--background-color-light);
+  border: 2px solid var(--background-color-dark);
+  border-radius: var(--border-radius);
+  color: var(--white);
+  margin-top: 16px;
+  padding: 12px;
+}
+
+.list-item:hover {
+
+  cursor: pointer;
+
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
