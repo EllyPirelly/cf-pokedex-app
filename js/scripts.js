@@ -25,33 +25,24 @@ let pokemonList = [
   }
 ];
 
-for (i = 0; i < pokemonList.length; i++) {
-  // loop over array items, print name and height of single items
-  // document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ")");
-
-  /* step 2
-    if condition with variables and template literals
-  */
-  let pokeName = pokemonList[i].name;
-  let pokeHeight = pokemonList[i].height;
-
-  if (pokeHeight > 1.0) {
-    document.write(`
-      <div class='list-item'>${pokeName} (height: ${pokeHeight} m) - Wow, that's big!</div>
-    `);
-  } else {
-    document.write(`
-      <div class='list-item'>${pokeName} (height: ${pokeHeight} m)</div>
-    `);
-  }
-
-  /* step 1
-    simple if condition
-  */
-
-  // if (pokemonList[i].height > 1.0) {
-  //   document.write("<div class='pokemon'>" + pokemonList[i].name + " (height: " + pokemonList[i].height + " m) - Wow, that's big!</div>");
-  // } else {
-  //   document.write("<div class='pokemon'>" + pokemonList[i].name + " (height: " + pokemonList[i].height + " m)</div>");
-  // }
+function loopMe(item) {
+  console.log('Name: ' + item.name + ' | ' + 'Height: ' + item.height + ' | ' + 'Types: ' + item.types);
 }
+
+pokemonList.forEach(loopMe);
+
+// old for Loop
+// for (i = 0; i < pokemonList.length; i++) {
+//   let pokeName = pokemonList[i].name;
+//   let pokeHeight = pokemonList[i].height;
+
+//   if (pokeHeight > 1.0) {
+//     document.write(`
+//       <div class='list-item'>${pokeName} (height: ${pokeHeight} m) - Wow, that's big!</div>
+//     `);
+//   } else {
+//     document.write(`
+//       <div class='list-item'>${pokeName} (height: ${pokeHeight} m)</div>
+//     `);
+//   }
+// }
