@@ -26,25 +26,25 @@ var pokemonRepository = (function () {
     }
   ];
 
-  // return all items
-  function getAll(pokemonRepository) {
+  // return all items of pokemonList
+  function getAll() {
     return pokemonList;
-  }
+  };
 
   // add single item to pokemonList array
   function add(item) {
     pokemonList.push(item);
-  }
+  };
 
   return {
-    getAll,
-    add
-  }
-
+    add,
+    getAll
+  };
 
 })();
 
-pokemonList.forEach(function(item) {
+// call getAll on pokemonRepository, run forEach, generate HTML
+pokemonRepository.getAll().forEach(function(item) {
   if (item.height > 1.0) {
     document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m) - Wow, that\'s big!</div>');
   } else {
