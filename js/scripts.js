@@ -1,35 +1,37 @@
 let pokemonList = [
   {
-    name: "Bulbasaur",
+    name: 'Bulbasaur',
     height: 0.7,
     types: [
-      "grass",
-      "poison"
+      'grass',
+      'poison'
     ]
   },
   {
-    name: "Jigglypuff",
+    name: 'Jigglypuff',
     height: 0.5,
     types: [
-      "fairy",
-      "normal"
+      'fairy',
+      'normal'
     ]
   },
   {
-    name: "Tentacruel",
+    name: 'Tentacruel',
     height: 1.6,
     types: [
-      "water",
-      "poison"
+      'water',
+      'poison'
     ]
   }
 ];
 
-function loopMe(item) {
-  console.log('Name: ' + item.name + ' | ' + 'Height: ' + item.height + ' | ' + 'Types: ' + item.types);
-}
-
-pokemonList.forEach(loopMe);
+pokemonList.forEach(function(item) {
+  if (item.height > 1.0) {
+    document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m) - Wow, that\'s big!</div>');
+  } else {
+    document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m)</div>');
+  }
+});
 
 // old for Loop
 // for (i = 0; i < pokemonList.length; i++) {
