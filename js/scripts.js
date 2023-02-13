@@ -62,6 +62,15 @@ var pokemonRepository = (function () {
 
 })();
 
+pokemonRepository.add({
+  name: 'testpoke',
+  height: 0.5,
+  types: [
+    'evil',
+    'sunny'
+  ]
+});
+
 // call getAll on pokemonRepository
 // run forEach on pokemonRepository and run addListItem in each iteration
 pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
