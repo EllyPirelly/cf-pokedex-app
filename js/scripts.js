@@ -26,32 +26,47 @@ var pokemonRepository = (function () {
     }
   ];
 
-  // return all items of pokemonList
+  // get and return all items of pokemonList
   function getAll() {
     return pokemonList;
   };
 
-  // add single item to pokemonList array
+  // push single item to pokemonList array
   function add(item) {
     pokemonList.push(item);
   };
 
+  // create and append
+  function addListItem(pokemon) {
+    // grab outer ul element
+    let list = document.querySelector('.pokemon-list');
+
+    // create li and button elements
+    let listItem = document.createElement('li');
+    let itemButton = document.createElement('button');
+
+    // add button class and button inner text
+    itemButton.classList.add('list-item__button');
+    itemButton.innerText = pokemon.name;
+
+    // append both, li to ul and button to li
+    list.appendChild(listItem);
+    listItem.appendChild(itemButton);
+  };
+
   return {
     add,
-    getAll
+    getAll,
+    addListItem
   };
 
 })();
 
-// call getAll on pokemonRepository, run forEach, generate HTML
-pokemonRepository.getAll().forEach(function(item) {
-  let pokeList = document.querySelector('.pokemon-list');
-  let listItem = document.createElement('li');
-  let itemButton = document.createElement('button');
+// call getAll on pokemonRepository
+// run forEach on pokemonRepository and run addListItem in each iteration
+pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
 
-  itemButton.classList.add('list-item-button');
-  itemButton.innerText = item.name;
-
-  listItem.appendChild(itemButton);
-  pokeList.appendChild(listItem);
-});
+// or this:
+// pokemonRepository.getAll().forEach(function(item) {
+//   pokemonRepository.addListItem(item);
+// });
