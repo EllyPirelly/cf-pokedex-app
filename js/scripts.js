@@ -45,9 +45,13 @@ var pokemonRepository = (function () {
 
 // call getAll on pokemonRepository, run forEach, generate HTML
 pokemonRepository.getAll().forEach(function(item) {
-  if (item.height > 1.0) {
-    document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m) - Wow, that\'s big!</div>');
-  } else {
-    document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m)</div>');
-  }
+  let pokeList = document.querySelector('.pokemon-list');
+  let listItem = document.createElement('li');
+  let itemButton = document.createElement('button');
+
+  itemButton.classList.add('list-item-button');
+  itemButton.innerText = item.name;
+
+  listItem.appendChild(itemButton);
+  pokeList.appendChild(listItem);
 });
