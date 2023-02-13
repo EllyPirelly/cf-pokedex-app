@@ -33,7 +33,16 @@ var pokemonRepository = (function () {
 
   // push single item to pokemonList array
   function add(item) {
-    pokemonList.push(item);
+    if (
+      typeof item === 'object' &&
+      'name' in item &&
+      'height' in item &&
+      'types' in item
+    ) {
+      pokemonList.push(item);
+    } else {
+      console.log('Nope, not a valid Poke.');
+    }
   };
 
   // create and append
