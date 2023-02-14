@@ -87,7 +87,6 @@ li {
   color: var(--white);
   list-style: none;
   margin-top: 16px;
-  padding: 12px;
 }
 
 li:hover {
@@ -109,7 +108,8 @@ li:hover {
   color: inherit;
   cursor: pointer;
   outline: none;
-  padding: 0;
+  padding: 16px;
+  width: 100%;
 }
 
 /* TODO: check focus state as soon as it's clear how everything comes together */

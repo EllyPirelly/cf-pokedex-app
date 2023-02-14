@@ -26,12 +26,12 @@ var pokemonRepository = (function () {
     }
   ];
 
-  // get and return all items of pokemonList
+  // get and return all items of pokemonList array
   function getAll() {
     return pokemonList;
   };
 
-  // push single item to pokemonList array
+  // check type and push single item to pokemonList array
   function add(item) {
     if (
       typeof item === 'object' &&
@@ -58,9 +58,19 @@ var pokemonRepository = (function () {
     itemButton.classList.add('list-item__button');
     itemButton.innerText = pokemon.name;
 
+    // add event handler on button
+    itemButton.addEventListener('click', function() {
+      showDetails(pokemon);
+    });
+
     // append both, li to ul and button to li
     list.appendChild(listItem);
     listItem.appendChild(itemButton);
+  };
+
+  // console.log pokemon details at button click
+  function showDetails(pokemon) {
+    console.log(pokemon);
   };
 
   return {
@@ -71,6 +81,7 @@ var pokemonRepository = (function () {
 
 })();
 
+// TODO: delete when "real" data comes in
 pokemonRepository.add({
   name: 'testpoke',
   height: 0.5,
@@ -81,7 +92,8 @@ pokemonRepository.add({
 });
 
 // call getAll on pokemonRepository
-// run forEach on pokemonRepository and run addListItem in each iteration
+// run forEach on pokemonRepository
+// run addListItem in each iteration
 pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
 
 // or this:
