@@ -66,12 +66,25 @@ var pokemonRepository = (function () {
     // append both, li to ul and button to li
     list.appendChild(listItem);
     listItem.appendChild(itemButton);
+
+    // addEl();
   };
 
   // console.log pokemon details at button click
   function showDetails(pokemon) {
     console.log(pokemon);
   };
+
+  // function addEl (itemButton, pokemon) {
+  //   if (itemButton) {
+  //     itemButton.addEventListener('click', function() {
+  //       showDetails(pokemon);
+  //     });
+  //     console.log('yes');
+  //   } else {
+  //     console.log('nope');
+  //   }
+  // };
 
   return {
     add,
