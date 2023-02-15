@@ -1,14 +1,15 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  // TODO: change back to 150 items when necessary
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=15';
 
-  // check type and push single item to pokemonList array
+  // typeof check on what's given back by API
+  // push single item to pokemonList array
   function add(item) {
     if (
-      typeof item === 'object' //&&
-      // 'name' in item &&
-      // 'height' in item &&
-      // 'types' in item
+      typeof item === 'object' &&
+      'name' in item &&
+      'detailsUrl' in item
     ) {
       pokemonList.push(item);
     } else {
@@ -22,7 +23,7 @@ let pokemonRepository = (function () {
   };
 
   // create and append
-  function addListItem(pokemon) {
+  function addListItem(item) {
     // grab outer ul element
     let list = document.querySelector('.pokemon-list');
 
@@ -32,21 +33,21 @@ let pokemonRepository = (function () {
 
     // add button class and button inner text
     itemButton.classList.add('list-item__button');
-    itemButton.innerText = pokemon.name;
+    itemButton.innerText = item.name;
 
-    // call "outer" event handler function
-    addEl(itemButton, pokemon);
+    // call event handler
+    addEl(itemButton, item);
 
     // append both, li to ul and button to li
     list.appendChild(listItem);
     listItem.appendChild(itemButton);
   };
 
-  // add event handler on button with "outer" function
-  function addEl (itemButton, pokemon) {
+  // event handler on button
+  function addEl (itemButton, item) {
     if (itemButton) {
       itemButton.addEventListener('click', function() {
-        showDetails(pokemon);
+        showDetails(item);
       });
       console.log('yes, i work');
     } else {
@@ -107,19 +108,9 @@ let pokemonRepository = (function () {
 
 })();
 
-// TODO: delete when "real" data comes in
-// pokemonRepository.add({
-//   name: 'testpoke',
-//   height: 0.5,
-//   types: [
-//     'evil',
-//     'sunny'
-//   ]
-// });
-
-// call getAll on pokemonRepository
-// run forEach on pokemonRepository
-// run addListItem in each iteration
+// loadList
+// if success, getAll which is the pokemonList
+// for each item, add item to pokemonList
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
