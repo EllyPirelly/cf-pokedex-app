@@ -11,6 +11,9 @@ data from the external [PokéAPI](https://pokeapi.co/) and enables the viewing o
 - Visual Studio Code
 - GitHub
 - HTML, CSS, JavaScript
+- for the sake of this exercise: Polyfills
+  - [Polyfill for promises](https://github.com/taylorhakes/promise-polyfill) with this [min.js](https://raw.githubusercontent.com/taylorhakes/promise-polyfill/master/dist/polyfill.min.js)
+  - [Polyfill for fetch](https://github.com/github/fetch) with this [js file](https://github.com/github/fetch/releases/download/v3.0.0/fetch.umd.js)
 
 ### How to run this?
 At time of writing, there's no npm packages or a build workflow present
