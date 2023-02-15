@@ -19,14 +19,18 @@
     <div id="app">
       <h1>Yay! Pokemon Checker!</h1>
 
-      <ul class="pokemon-list">
+      <!-- <button id="show-modal">Show modal</button> -->
+
+      <!-- TODO: figure out if the click can be on a yet non-existing button -->
+      <ul class="pokemon-list" id="show-modal">
         <!-- content in here is generated via JavaScript -->
       </ul>
-    </div>
 
-    <script src="js/promise-polyfill.js"></script>
-    <script src="js/fetch.umd.js"></script>
-    <script src="js/scripts.js"></script>
+      <div id="modal-container"></div>
+
+      <script src="js/promise-polyfill.js"></script>
+      <script src="js/fetch.umd.js"></script>
+      <script src="js/scripts.js"></script>
   </body>
 
 </html>
