@@ -26,28 +26,87 @@ var pokemonRepository = (function () {
     }
   ];
 
-  // return all items of pokemonList
+  // get and return all items of pokemonList array
   function getAll() {
     return pokemonList;
   };
 
-  // add single item to pokemonList array
+  // check type and push single item to pokemonList array
   function add(item) {
-    pokemonList.push(item);
+    if (
+      typeof item === 'object' &&
+      'name' in item &&
+      'height' in item &&
+      'types' in item
+    ) {
+      pokemonList.push(item);
+    } else {
+      console.log('Nope, not a valid Poke.');
+    }
+  };
+
+  // create and append
+  function addListItem(pokemon) {
+    // grab outer ul element
+    let list = document.querySelector('.pokemon-list');
+
+    // create li and button elements
+    let listItem = document.createElement('li');
+    let itemButton = document.createElement('button');
+
+    // add button class and button inner text
+    itemButton.classList.add('list-item__button');
+    itemButton.innerText = pokemon.name;
+
+    // call "outer" event handler function
+    addEl(itemButton, pokemon);
+
+    // append both, li to ul and button to li
+    list.appendChild(listItem);
+    listItem.appendChild(itemButton);
+  };
+
+  // console.log pokemon details at button click
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  };
+
+  // add event handler on button with "outer" function
+  function addEl (itemButton, pokemon) {
+    if (itemButton) {
+      itemButton.addEventListener('click', function() {
+        showDetails(pokemon);
+      });
+      console.log('yes, i work');
+    } else {
+      console.log('nope, something\s off');
+    }
   };
 
   return {
     add,
-    getAll
+    getAll,
+    addListItem
   };
 
 })();
 
-// call getAll on pokemonRepository, run forEach, generate HTML
-pokemonRepository.getAll().forEach(function(item) {
-  if (item.height > 1.0) {
-    document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m) - Wow, that\'s big!</div>');
-  } else {
-    document.write('<div class="list-item">Name: ' + item.name + ' (height: ' + item.height + ' m)</div>');
-  }
+// TODO: delete when "real" data comes in
+pokemonRepository.add({
+  name: 'testpoke',
+  height: 0.5,
+  types: [
+    'evil',
+    'sunny'
+  ]
 });
+
+// call getAll on pokemonRepository
+// run forEach on pokemonRepository
+// run addListItem in each iteration
+pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
+
+// or this:
+// pokemonRepository.getAll().forEach(function(item) {
+//   pokemonRepository.addListItem(item);
+// });

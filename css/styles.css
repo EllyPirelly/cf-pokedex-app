@@ -25,26 +25,6 @@
   --border-radius: 12px;
 }
 
-@font-face {
-  font-family: 'Pokemon Hollow Normal';
-  src: url('/fonts/pokemon_hollow.woff2') format('woff2'),
-       url('/fonts/pokemon_hollow.woff') format('woff'),
-       url('/fonts/pokemon_hollow.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'Pokemon Solid Normal';
-  src: url('/fonts/pokemon_solid.woff2') format('woff2'),
-       url('/fonts/pokemon_solid.woff') format('woff'),
-       url('/fonts/pokemon_solid.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
 html {
   box-sizing: border-box;
 }
@@ -63,7 +43,7 @@ body {
     var(--background-color-light) 5%,
     var(--background-color-dark) 70%);
   color: var(--black);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -73,24 +53,23 @@ body {
 }
 
 h1 {
-  font-family: 'Pokemon Solid Normal', sans-serif;
+  font-family: 'Ranchers', cursive;
   color: var(--white);
-  font-size: 52px;
-  letter-spacing: 0.1em;
-  transform: scale(1, 1.2);
+  font-size: 58px;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
 }
 
-.list-item {
+li {
   background-color: var(--background-color-light);
   border: 2px solid var(--background-color-dark);
   border-radius: var(--border-radius);
   color: var(--white);
+  list-style: none;
   margin-top: 16px;
-  padding: 12px;
 }
 
-.list-item:hover {
-
+li:hover {
   cursor: pointer;
 
   box-shadow:
@@ -99,4 +78,22 @@ h1 {
     rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.list-item__button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  padding: 16px;
+  width: 100%;
+}
+
+/* TODO: check focus state as soon as it's clear how everything comes together */
+.list-item__button:focus,
+.list-item__button:focus-visible {
+  outline: 0.125rem dotted var(--black);
+  outline-offset: 0.1875rem;
 }
