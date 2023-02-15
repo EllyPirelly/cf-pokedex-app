@@ -58,16 +58,12 @@ var pokemonRepository = (function () {
     itemButton.classList.add('list-item__button');
     itemButton.innerText = pokemon.name;
 
-    // add event handler on button
-    itemButton.addEventListener('click', function() {
-      showDetails(pokemon);
-    });
+    // call "outer" event handler function
+    addEl(itemButton, pokemon);
 
     // append both, li to ul and button to li
     list.appendChild(listItem);
     listItem.appendChild(itemButton);
-
-    // addEl();
   };
 
   // console.log pokemon details at button click
@@ -75,16 +71,17 @@ var pokemonRepository = (function () {
     console.log(pokemon);
   };
 
-  // function addEl (itemButton, pokemon) {
-  //   if (itemButton) {
-  //     itemButton.addEventListener('click', function() {
-  //       showDetails(pokemon);
-  //     });
-  //     console.log('yes');
-  //   } else {
-  //     console.log('nope');
-  //   }
-  // };
+  // add event handler on button with "outer" function
+  function addEl (itemButton, pokemon) {
+    if (itemButton) {
+      itemButton.addEventListener('click', function() {
+        showDetails(pokemon);
+      });
+      console.log('yes, i work');
+    } else {
+      console.log('nope, something\s off');
+    }
+  };
 
   return {
     add,
