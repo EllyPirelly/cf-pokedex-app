@@ -183,18 +183,19 @@ body {
   font-size: var(--font-size-xl);
 }
 
-/* TODO: API img is really poop, not much styling possible */
-/* .modal-item__img {
-  width: 100%;
+.modal-item__img {
   height: auto;
-} */
+  width: 75%;
+  padding: 20px;
+}
 
 /* MEDIA QUERIES */
+
 @media all and (min-width: 640px) {
   .pokemon-list {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .list-item {
@@ -208,6 +209,6 @@ body {
 
 @media all and (min-width: 768px) {
   .pokemon-list {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

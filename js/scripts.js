@@ -84,7 +84,9 @@ let pokemonRepository = (function () {
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
+      // item.imageUrl = details.sprites.front_default;
+      // try a better quality one as the default ones are poop
+      item.imageUrl = details.sprites.other.dream_world.front_default;
       item.height = details.height;
       item.types = details.types;
     }).catch(function (event) {
@@ -121,9 +123,6 @@ let pokemonRepository = (function () {
       let imageElement = document.createElement('img');
       imageElement.setAttribute('src', item.imageUrl);
       imageElement.classList.add('modal-item__img');
-      // TODO: style img via class
-      imageElement.setAttribute('width', '100');
-      imageElement.setAttribute('height', '100');
 
       // bring everything together
       modalContainer.appendChild(modal);
