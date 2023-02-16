@@ -1,12 +1,11 @@
 let pokemonRepository = (function () {
 
+  // empty array for incoming data
   let pokemonList = [];
-  // TODO: change back to 150 items when necessary
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=15';
-  // let modalContainer = document.querySelector('#modal-container');
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=15'; // TODO: change back to 150 items when necessary
 
   // typeof check on what's given back by API
-  // push single item to pokemonList array
+  // push valid single item to pokemonList array
   function add(item) {
     if (
       typeof item === 'object' &&
@@ -24,7 +23,7 @@ let pokemonRepository = (function () {
     return pokemonList;
   };
 
-  // create and append
+  // create and append elements
   function addListItem(item) {
     // grab outer ul element
     let list = document.querySelector('.pokemon-list');
@@ -84,8 +83,6 @@ let pokemonRepository = (function () {
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      // item.imageUrl = details.sprites.front_default;
-      // try a better quality one as the default ones are poop
       item.imageUrl = details.sprites.other.dream_world.front_default;
       item.height = details.height;
       item.types = details.types;
@@ -94,7 +91,7 @@ let pokemonRepository = (function () {
     });
   };
 
-  // ADD EXERCISE MODAL HERE
+  // adapt exercise modal to project modal
   function showModal(item) {
 
     pokemonRepository.loadDetails(item).then(function () {
@@ -114,11 +111,35 @@ let pokemonRepository = (function () {
       // pokedetails
       let nameElement = document.createElement('h2');
       nameElement.classList.add('headline-secondary');
-      nameElement.innerText = item.name;
+      nameElement.innerText = 'Name: ' + item.name;
 
       let heightElement = document.createElement('div');
       heightElement.classList.add('modal-item__text');
-      heightElement.innerText = item.height;
+      heightElement.innerText = 'Height: ' + item.height;
+
+      // TODO: poketype(s) - will that work??
+      // this is the path: details.types.type.name
+      // let pokeType = "";
+
+      // for (let i = 0; item.types.length; i++) {
+      //   how to grab this here
+
+      //   if(i < item.types.length - 1) {
+      //     console.log('I don\'t have a type');
+      //   }
+      // };
+
+      // TODO: not working, totally possible that approach is wrong
+      if(JSON.stringify(item.types).indexOf('name') > -1) {
+        console.log(item.types.type);
+      } else {
+        console.log('not there yet');
+      }
+
+      let typesElement = document.createElement('div');
+      typesElement.classList.add('modal-item__types');
+      // typesElement.innerText = 'Types: ' + item.pokeType;
+      typesElement.innerText = 'Types: ' + item.types;
 
       let imageElement = document.createElement('img');
       imageElement.setAttribute('src', item.imageUrl);
@@ -128,6 +149,7 @@ let pokemonRepository = (function () {
       modalContainer.appendChild(modal);
       modal.appendChild(nameElement);
       modal.appendChild(heightElement);
+      modal.appendChild(typesElement);
       modal.appendChild(imageElement);
       modal.appendChild(closeButtonElement);
 
