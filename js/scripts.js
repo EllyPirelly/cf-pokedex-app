@@ -31,6 +31,7 @@ let pokemonRepository = (function () {
 
     // create li and button elements
     let listItem = document.createElement('li');
+    listItem.classList.add('list-item');
     let itemButton = document.createElement('button');
 
     // add button class and button inner text
@@ -110,24 +111,26 @@ let pokemonRepository = (function () {
 
       // pokedetails
       let nameElement = document.createElement('h2');
+      nameElement.classList.add('headline-secondary');
       nameElement.innerText = item.name;
 
       let heightElement = document.createElement('div');
+      heightElement.classList.add('modal-item__text');
       heightElement.innerText = item.height;
 
       let imageElement = document.createElement('img');
       imageElement.setAttribute('src', item.imageUrl);
-      imageElement.classList.add('list-item__img');
-      // TODO: as img size yet unkown, delete width and height as soon as styling is possible
+      imageElement.classList.add('modal-item__img');
+      // TODO: style img via class
       imageElement.setAttribute('width', '100');
       imageElement.setAttribute('height', '100');
 
       // bring everything together
       modalContainer.appendChild(modal);
-      modal.appendChild(closeButtonElement);
       modal.appendChild(nameElement);
       modal.appendChild(heightElement);
       modal.appendChild(imageElement);
+      modal.appendChild(closeButtonElement);
 
       modalContainer.classList.add('is-visible');
 
@@ -149,12 +152,8 @@ let pokemonRepository = (function () {
       });
 
       document.querySelector('button').addEventListener('click', () => {
-        showModal('nametodo', 'heighttodo', 'imagetodo');
+        showModal();
       });
-
-      // document.querySelector('#show-modal').addEventListener('click', () => {
-      //   showModal('name', 'height', 'image');
-      // });
     });
   };
 

@@ -3,8 +3,10 @@
   --white: #fff;
   --neutral-200: #e5e5e5;
 
+  --background-color-extra-light: rgba(147, 201, 255, 1);
   --background-color-light: rgba(37, 145, 251, 1);
   --background-color-dark: rgba(0, 7, 128, 1);
+  --background-modal: rgba(8, 8, 8, 0.4);
 
   --tile-color-bg: rgba(160, 64, 160, 0.5);
 
@@ -22,6 +24,13 @@
   --blue: #6890F0;
 
   --border-radius: 12px;
+
+  --font-size-base: 16px;
+  --font-size-large: 22px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 30px;
+  --font-size-3xl: 58px;
+  --font-weight-bold: 700;
 }
 
 html {
@@ -51,16 +60,32 @@ body {
   height: 100vh;
 }
 
-h1 {
+#app {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.headline-primary {
   font-family: 'Ranchers', cursive;
   color: var(--white);
-  font-size: 58px;
+  font-size: var(--font-size-3xl);
   letter-spacing: 0.05em;
   line-height: 1.25;
   margin-top: 0;
 }
 
-li {
+.headline-secondary {
+  font-size: var(--font-size-2xl);
+  line-height: 1;
+  margin-top: 0;
+  text-transform: capitalize;
+  /* TODO: figure out the longest name possible and rather change font-size? */
+  word-break: break-all;
+}
+
+/* POKEMON - LIST */
+
+.list-item {
   background-color: var(--background-color-light);
   border: 2px solid var(--background-color-dark);
   border-radius: var(--border-radius);
@@ -69,12 +94,14 @@ li {
   margin-top: 16px;
 }
 
-li:last-of-type {
+.list-item:last-of-type {
   margin-bottom: 16px;
 }
 
-li:hover {
+.list-item:hover {
+  color: var(--background-color-dark);
   cursor: pointer;
+  background-color: var(--background-color-extra-light);
 
   box-shadow:
     rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -90,8 +117,10 @@ li:hover {
   border-radius: 0;
   color: inherit;
   cursor: pointer;
+  font-size: var(--font-size-large);
   outline: none;
-  padding: 16px;
+  padding: 32px 16px;
+  text-transform: capitalize;
   width: 100%;
 }
 
@@ -102,46 +131,83 @@ li:hover {
   outline-offset: 0.1875rem;
 }
 
+/* MODAL */
+
 #modal-container {
   display: none;
 }
 
 #modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  top: 0;
-  left: 0;
-  width: 100%;
+  display: block;
+  background: var(--background-modal);
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  left: 0;
+  padding: 20px;
+  position: fixed;
   overflow: auto;
-  display: grid;
-  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .modal {
-  margin: auto;
-  display: inline-block;
-  background: #fff;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
+  align-items: center;
+  background-color: var(--neutral-200);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto auto;
+  max-width: 480px;
+  padding: 24px;
   text-align: left;
+  width: 100%;
 }
 
 .modal-close {
-  float: right;
-  border: 0;
   background: none;
-  color: #777;
-  text-decoration: underline;
+  color: var(--black);
+  cursor: pointer;
+  float: right;
+  padding: 6px;
+  width: 100%;
 }
 
-.modal h1 {
-  margin-top: 0;
+.modal-close:hover {
+  background-color: var(--background-color-light);
+  border: 2px solid var(--background-color-light);
+  color: var(--white);
 }
 
-.modal p {
-  margin-bottom: 0;
+.modal-item__text {
+  margin-top: 6px;
+  font-size: var(--font-size-xl);
+}
+
+/* TODO: API img is really poop, not much styling possible */
+/* .modal-item__img {
+  width: 100%;
+  height: auto;
+} */
+
+/* MEDIA QUERIES */
+@media all and (min-width: 640px) {
+  .pokemon-list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .list-item {
+    margin-top: 0;
+  }
+
+  .list-item:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .pokemon-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
