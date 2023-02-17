@@ -109,7 +109,7 @@ let pokemonRepository = (function () {
       closeButtonElement.addEventListener('click', hideModal);
 
       let pokeLogo = document.createElement('img');
-      pokeLogo.src = '/img/svg-pokemon-logo.png';
+      pokeLogo.src = 'img/svg-pokemon-logo.png';
       pokeLogo.classList.add('poke-logo');
 
       // pokedetails
