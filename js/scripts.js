@@ -2,7 +2,7 @@ let pokemonRepository = (function () {
 
   // empty array for incoming data
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=15'; // TODO: change back to 150 items when necessary
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30'; // TODO: change back to 150 items when necessary
 
   // typeof check on what's given back by API
   // push valid single item to pokemonList array
@@ -108,6 +108,10 @@ let pokemonRepository = (function () {
       closeButtonElement.innerText = 'Close';
       closeButtonElement.addEventListener('click', hideModal);
 
+      let pokeLogo = document.createElement('img');
+      pokeLogo.src = '/img/svg-pokemon-logo.png';
+      pokeLogo.classList.add('poke-logo');
+
       // pokedetails
       let nameElement = document.createElement('h2');
       nameElement.classList.add('headline-secondary');
@@ -117,29 +121,19 @@ let pokemonRepository = (function () {
       heightElement.classList.add('modal-item__text');
       heightElement.innerText = 'Height: ' + item.height;
 
-      // TODO: poketype(s) - will that work??
-      // this is the path: details.types.type.name
-      // let pokeType = "";
+      // loop over pokeTypes
+      let pokeTypes = '';
 
-      // for (let i = 0; item.types.length; i++) {
-      //   how to grab this here
-
-      //   if(i < item.types.length - 1) {
-      //     console.log('I don\'t have a type');
-      //   }
-      // };
-
-      // TODO: not working, totally possible that approach is wrong
-      if(JSON.stringify(item.types).indexOf('name') > -1) {
-        console.log(item.types.type);
-      } else {
-        console.log('not there yet');
-      }
+      for (let i = 0; i < item.types.length; i++) {
+        pokeTypes += item.types[i].type.name;
+        if (i + 1 !== item.types.length) {
+          pokeTypes += ', ';
+        }
+      };
 
       let typesElement = document.createElement('div');
       typesElement.classList.add('modal-item__types');
-      // typesElement.innerText = 'Types: ' + item.pokeType;
-      typesElement.innerText = 'Types: ' + item.types;
+      typesElement.innerText = 'Types: ' + pokeTypes;
 
       let imageElement = document.createElement('img');
       imageElement.setAttribute('src', item.imageUrl);
@@ -147,6 +141,7 @@ let pokemonRepository = (function () {
 
       // bring everything together
       modalContainer.appendChild(modal);
+      modal.appendChild(pokeLogo);
       modal.appendChild(nameElement);
       modal.appendChild(heightElement);
       modal.appendChild(typesElement);
