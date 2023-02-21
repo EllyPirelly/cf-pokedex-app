@@ -30,11 +30,11 @@ let pokemonRepository = (function () {
 
     // create li and button elements
     let listItem = document.createElement('li');
-    listItem.classList.add('list-item');
+    listItem.classList.add('group-list-item', 'list-item');
     let itemButton = document.createElement('button');
 
     // add button class and button inner text
-    itemButton.classList.add('list-item__button');
+    itemButton.classList.add('btn', 'btn-primary', 'list-item__button');
     itemButton.innerText = item.name;
 
     // append both, li to ul and button to li
