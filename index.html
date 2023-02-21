@@ -55,7 +55,36 @@
 
       <ul class="list-group pokemon-list"></ul>
 
-      <div id="modal-container"></div>
+      <!-- old container, pre bootstrap, delete when ready -->
+      <!-- <div id="modal-container"></div> -->
+
+      <!-- bootstrap modal -->
+      <!-- fade is the shadow, transitions in -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+
+        <!-- dialog is the outer box; placement of modal in total -->
+        <div class="modal-dialog" role="document">
+
+          <!-- content is what needs to be replaced, content generated dynamically -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span>something</span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       <!-- the wandering ball, commented out for the moment -->
       <!-- <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" class="pokeball" id="Pokéball" x="0" y="0"
