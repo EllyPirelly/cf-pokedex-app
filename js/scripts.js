@@ -109,17 +109,20 @@ let pokemonRepository = (function () {
       let modalHeader = $('.modal-header');
       let modalBody = $('.modal-body');
 
+      // empty element
+      // modalContainer.empty();
+
       modalContent.val('');
 
       // create elements inside modal header
       let nameElement = $('<h2 class="headline-secondary">' + item.name + '</h2>');
-      let closeButtonElement = $('<button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close"></button>');
-      let ariaButton = $('<span aria-hidden="true">' + '&times;' + '</span>');
+      let closeButtonElement = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>');
+      let ariaButton = $('<span aria-hidden="true">' + 'X' + '</span>');
 
       // create elements inside modal body
       let pokeLogo = $('<img class="poke-logo">').attr('src', 'img/svg-pokemon-logo.png');
-      let nameDetail = $('<div class="modal-item__text">' + 'Name: ' + item.name + '</div>');
-      let heightElement = $('<div class="modal-item__text">' + 'Height: ' + item.height + '</div>');
+      let nameDetail = $('<div class="modal-item__name">' + 'Name: ' + item.name + '</div>');
+      let heightElement = $('<div class="modal-item__height">' + 'Height: ' + item.height + '</div>');
       let imageElement = $('<img class="modal-item__img">').attr('src', item.imageUrl);
 
       // loop over pokeTypes
