@@ -53,14 +53,38 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  padding: 20px;
   width: 100%;
   height: 100%;
 }
 
 #app {
-  margin: 0 auto;
+  margin: 66px auto auto;
   max-width: 800px;
+  padding: 0 1rem 1rem;
+}
+
+/* POKEBALL */
+
+.pokeball {
+  animation: drift 8s linear infinite;
+  position: absolute;
+  top: 60%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: -10;
+}
+
+@keyframes drift {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+  to {
+    margin-left: 100%;
+    width: 100%;
+  }
 }
 
 .headline-primary {
@@ -80,35 +104,53 @@ body {
   word-break: break-all;
 }
 
-/* POKEBALL */
+/* NAVBAR */
 
-.pokeball {
-  animation: drift 8s linear infinite;
-  position: absolute;
-  top: 60%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  z-index: -10;
+.navbar-container {
+  background-color: var(--background-color-extra-light);
 }
 
-/* POKEMON - LIST */
+.navbar {
+  margin: 0 auto;
+  max-width: 800px;
+}
 
-.list-item {
+.navbar.bg-light {
+  background-color: var(--background-color-extra-light)!important;
+}
+
+#navbarNav {
+  justify-content: flex-end;
+}
+
+/* POKEMON LIST */
+
+.list-group li {
+  list-style: none;
+}
+
+.list-item-wrapper {
+  row-gap: 15px;
+}
+
+.group-list-item {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.group-list-item .btn {
   background-color: var(--background-color-light);
   border: 2px solid var(--background-color-dark);
   border-radius: var(--border-radius);
   color: var(--white);
-  list-style: none;
-  margin-top: 16px;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  padding: 32px 16px;
+  text-transform: capitalize;
+  width: 100%;
 }
 
-.list-item:last-of-type {
-  margin-bottom: 16px;
-}
-
-.list-item:hover {
+.group-list-item .btn:hover {
   color: var(--background-color-dark);
   cursor: pointer;
   background-color: var(--background-color-extra-light);
@@ -120,74 +162,7 @@ body {
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.list-item__button {
-  background: none;
-  border: none;
-  border-radius: 0;
-  color: inherit;
-  cursor: pointer;
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  outline: none;
-  padding: 32px 16px;
-  text-transform: capitalize;
-  width: 100%;
-}
-
-/* Future TODO: implement proper focus styles everywhere */
-.list-item__button:focus,
-.list-item__button:focus-visible {
-  outline: 0.125rem dotted var(--black);
-  outline-offset: 0.1875rem;
-}
-
 /* MODAL */
-
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  display: block;
-  background: var(--background-modal);
-  height: 100%;
-  left: 0;
-  padding: 20px;
-  position: fixed;
-  overflow: auto;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.modal {
-  align-items: center;
-  background-color: var(--neutral-200);
-  border-radius: var(--border-radius);
-  display: flex;
-  flex-direction: column;
-  margin: 100px auto auto;
-  max-width: 480px;
-  padding: 24px;
-  text-align: left;
-  width: 100%;
-}
-
-.modal-close {
-  background: none;
-  border-radius: var(--border-radius);
-  color: var(--black);
-  cursor: pointer;
-  float: right;
-  padding: 6px;
-  width: 100%;
-}
-
-.modal-close:hover {
-  background-color: var(--background-color-light);
-  border: 2px solid var(--background-color-light);
-  color: var(--white);
-}
 
 .modal-item__text {
   margin-top: 6px;
@@ -202,35 +177,49 @@ body {
 
 /* MEDIA QUERIES */
 
-@media all and (min-width: 640px) {
-  .pokemon-list {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .list-item {
-    margin-top: 0;
-  }
-
-  .list-item:last-of-type {
-    margin-bottom: 0;
+@media all and (min-width: 576px) {
+  .navbar-expand-md .navbar-nav .nav-link:last-of-type {
+      padding-right: 0;
   }
 }
 
-@media all and (min-width: 768px) {
-  .pokemon-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
-@keyframes drift {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-  to {
-    margin-left: 100%;
-    width: 100%;
-  }
-}
+
+/* TODO: */
+
+/* Future TODO: implement proper focus styles everywhere */
+/* .list-item__button:focus,
+.list-item__button:focus-visible {
+  outline: 0.125rem dotted var(--black);
+  outline-offset: 0.1875rem;
+} */
+
+/* MODAL */
+/* .modal {
+  align-items: center;
+  background-color: var(--neutral-200);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto auto;
+  max-width: 480px;
+  padding: 24px;
+  text-align: left;
+  width: 100%;
+} */
+
+/* .modal-close {
+  background: none;
+  border-radius: var(--border-radius);
+  color: var(--black);
+  cursor: pointer;
+  float: right;
+  padding: 6px;
+  width: 100%;
+} */
+
+/* .modal-close:hover {
+  background-color: var(--background-color-light);
+  border: 2px solid var(--background-color-light);
+  color: var(--white);
+} */
