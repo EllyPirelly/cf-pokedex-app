@@ -2,7 +2,8 @@ let pokemonRepository = (function () {
 
   // empty array for incoming data
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30'; // TODO: change back to 150 items when necessary
+  // change limit to more items in case more are necessary
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30';
 
   // typeof check on what's given back by API
   // push valid single item to pokemonList array
@@ -39,6 +40,7 @@ let pokemonRepository = (function () {
 
     // add class, attributes, inner text to button
     itemButton.classList.add('btn');
+    itemButton.classList.add('btn-primary');
     itemButton.type = 'button';
     itemButton.setAttribute('data-toggle', 'modal');
     itemButton.setAttribute('data-target', '#exampleModal');
@@ -98,33 +100,35 @@ let pokemonRepository = (function () {
     });
   };
 
-  // adapt exercise modal to project modal
+  // show Bootstrap modal; (only here) jQuery is used for the exercise
   function showModal(item) {
 
     pokemonRepository.loadDetails(item).then(function () {
 
       // grab modal-content to empty it
       let modalContent = $('.modal-content');
-      // grab modal header, modal body elements via jquery
+      // grab modal header, modal body
       let modalHeader = $('.modal-header');
       let modalBody = $('.modal-body');
 
-      // empty element
+      // empty modal header, modal body
       modalHeader.empty();
       modalBody.empty();
 
       modalContent.val('');
 
       // create elements inside modal header
-      let nameElement = $('<h2 class="headline-secondary">' + item.name + '</h2>');
       let closeButtonElement = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>');
       let ariaButton = $('<span aria-hidden="true">' + 'X' + '</span>');
 
       // create elements inside modal body
-      let pokeLogo = $('<img class="poke-logo">').attr('src', 'img/svg-pokemon-logo.png');
-      let nameDetail = $('<div class="modal-item__name">' + 'Name: ' + item.name + '</div>');
-      let heightElement = $('<div class="modal-item__height">' + 'Height: ' + item.height + '</div>');
-      let imageElement = $('<img class="modal-item__img">').attr('src', item.imageUrl);
+      let pokeIllu = $('<div class="modal-body__img-wrapper"></div>')
+      let pokeLogo = $('<img class="modal-header__logo">').attr('src', 'src/img/svg-pokemon-logo.png');
+      let pokeImage = $('<img class="modal-item__img" alt="">').attr('src', item.imageUrl);
+
+      let pokeDetails = $('<div class="modal-body__details-wrapper"></div>')
+      let pokeName = $('<h2 class="modal-body__headline headline-secondary">' + item.name + '</h2>');
+      let pokeHeight = $('<p class="modal-body__item--height">' + '<b>Height: </b>' + item.height + '</p>');
 
       // loop over pokeTypes
       let pokeTypes = '';
@@ -136,17 +140,20 @@ let pokemonRepository = (function () {
         }
       };
 
-      let typesElement = $('<div class="modal-item__types">' + 'Types: ' + pokeTypes + '</div>');
+      // create element for pokeTypes
+      let typesElement = $('<p class="modal-body__item--types">' + '<b>Types: </b>' + pokeTypes + '</p>');
 
-      modalHeader.append(nameElement);
+      // append all
+      modalHeader.append(pokeLogo);
       modalHeader.append(closeButtonElement);
       closeButtonElement.append(ariaButton);
 
-      modalBody.append(pokeLogo);
-      modalBody.append(nameDetail);
-      modalBody.append(heightElement);
-      modalBody.append(typesElement);
-      modalBody.append(imageElement);
+      modalBody.append(pokeIllu);
+      modalBody.append(pokeDetails);
+      pokeIllu.append(pokeImage);
+      pokeDetails.append(pokeName);
+      pokeDetails.append(pokeHeight);
+      pokeDetails.append(typesElement);
     });
   };
 
