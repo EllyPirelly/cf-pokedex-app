@@ -5,13 +5,13 @@
 This Pokédex - Pokémon Checker App was build as a task for Achievement 1 in [Career Foundry's Full-Stack Web Development Program](https://careerfoundry.com/en/courses/become-a-web-developer/). <br>
 It is a responsive web application that fetches data from the [PokéAPI](https://pokeapi.co/). <br>
 Pokémon names are displayed as a list. <br>
-Pokémon Details are displayed via Modal.
+Pokémon details are displayed via Modal.
 
 [Click here to jump to the bottom to see screenshots](#Screenshots)
 
 ### Requirements
 
-- mobile first, responsive
+- mobile first (starting at 320px), responsive
 - HTML, CSS and JavaScript from scratch
 - Bootstrap (CSS, JS)
 - include Bootstrap's Navbar Component
@@ -26,7 +26,7 @@ Pokémon Details are displayed via Modal.
   - Pokémon Details mandatory to display are: image, name, height, types
   - all needed HTML elements must be created dynamically
 - use Polyfills for fetch and promises (browser support)
-- properly lint all files (Prettier, ESLint)
+- properly fromat and lint all files (Prettier, ESLint)
 - properly postCSS, autoprefix and minify all files (manually, no build workflow)
 
 ### Languages, Libraries, Frameworks
