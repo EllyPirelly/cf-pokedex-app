@@ -62,7 +62,7 @@ Pokémon details are displayed via Modal.
 
 ### How to run this?
 
-At time of writing, there's no npm packages or a build workflow present
+No build workflow.
 
 - clone the repo
 - `cd` into project
