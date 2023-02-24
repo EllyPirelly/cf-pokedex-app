@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jquery": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "airbnb", "prettier"],
+  "rules": {
+    "no-console": 1,
+    "prettier/prettier": ["error"]
+  }
+}
