@@ -1,6 +1,6 @@
 # ignore dist folder
 dist/
 
-# ignore polyfill files
+# ignore polyfill source files
 /src/js/fetch.umd.js
 /src/js/promise-polyfill.js
