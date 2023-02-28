@@ -70,6 +70,12 @@ No build workflow.
   ![Visual Studio Code Screenhot Go Live](src/img/screenshots/screenshot-golive.png) <br>
 - this is going to open the Pokémon Checker on localhost http://127.0.0.1:5500/
 
+### Possible future TODO
+
+- Pagination
+- Loading Spinner
+- ...
+
 ### Screenshots
 
 #### 320px
