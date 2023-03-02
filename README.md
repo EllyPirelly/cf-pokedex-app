@@ -2,7 +2,7 @@
 
 ### What is this about?
 
-This Pokédex - Pokémon Checker App was build as a task for Achievement 1 in [Career Foundry's Full-Stack Web Development Program](https://careerfoundry.com/en/courses/become-a-web-developer/). <br>
+This Pokédex - Pokémon Checker App was built as a task for Achievement 1 in [Career Foundry's Full-Stack Web Development Program](https://careerfoundry.com/en/courses/become-a-web-developer/). <br>
 It is a responsive web application that fetches data from the [PokéAPI](https://pokeapi.co/). <br>
 Pokémon names are displayed as a list. <br>
 Pokémon details are displayed via Modal.
@@ -26,8 +26,14 @@ Pokémon details are displayed via Modal.
   - Pokémon Details mandatory to display are: image, name, height, types
   - all needed HTML elements must be created dynamically
 - use Polyfills for fetch and promises (browser support)
-- properly fromat and lint all files (Prettier, ESLint)
+- properly format and lint all files (Prettier, ESLint)
 - properly postCSS, autoprefix and minify all files (manually, no build workflow)
+
+#### Detour to formatting and linting
+As I am working with Visual Studio Code, I do not need Prettier. <br>
+Visual Studio Code brings code formatting for HTML, CSS/SCSS and JavaScript out of the box. <br>
+This is the reason why I deleted Prettier and configs off of this project, after passing the final assignment. <br>
+To achieve a common code formatting in colaborations, I've introduced an `.editorconfig` with a most global configuration. <br>
 
 ### Languages, Libraries, Frameworks
 
@@ -47,6 +53,9 @@ Pokémon details are displayed via Modal.
 - [Polyfill for fetch](https://github.com/github/fetch) with this [js file](https://github.com/github/fetch/releases/download/v3.0.0/fetch.umd.js)
 - [Bootstrap 4.3.1 via CDN](https://getbootstrap.com/docs/4.3/getting-started/introduction/#js)
 - [jQuery min to replace jQuery slim](https://releases.jquery.com/)
+- [EditorConfig](editorconfig.org)
+- [Projects using EditorConfig](https://github.com/editorconfig/editorconfig/wiki/Projects-Using-EditorConfig)
+- [Download Plugins necessary to use editorconfig in your IDE](https://editorconfig.org/#download)
 
 ### Tools, Extensions
 
