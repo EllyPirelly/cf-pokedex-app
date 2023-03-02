@@ -37,13 +37,13 @@ To achieve a common code formatting in colaborations, I've introduced an `.edito
 Next steps were:
 - cleaning up my user settings in Visual Studio Code to make sure not to have interferences between formatters, linters, extensions
 - deleting all of the content in my user `settings.json` except for a last pair of `{}`
-- deleting all of my Visual Studio Code extensions
+- uninstalling all of my Visual Studio Code extensions
 - carefully bringing back the customized workspace/editor/terminal/formatting settings in my user `settings.json`
-- carefully bringing back Visual Studio Code extensions I need
+- carefully re-installing Visual Studio Code extensions I need
 - re-introducing an `.eslintrc` with a basic config
 - re-installing of ESLint Visual Studio Code extension
 - `npm install eslint` to have it in the workspace folder and NOT globally
-- check for linting errors in `scripts.js` (due to `.eslintrc` config, none in there)
+- checking for linting errors in `scripts.js` (due to `.eslintrc` config, none in there)
 
 ### Languages, Libraries, Frameworks
 
