@@ -32,8 +32,18 @@ Pokémon details are displayed via Modal.
 #### Detour to formatting and linting
 As I am working with Visual Studio Code, I do not need Prettier. <br>
 Visual Studio Code brings code formatting for HTML, CSS/SCSS and JavaScript out of the box. <br>
-This is the reason why I deleted Prettier and configs off of this project, after passing the final assignment. <br>
+This is the reason why I deleted Prettier, ESLint and configs off of this project, after passing the final assignment. <br>
 To achieve a common code formatting in colaborations, I've introduced an `.editorconfig` with a most global configuration. <br>
+Next steps were:
+- cleaning up my user settings in Visual Studio Code to make sure not to have interferences between formatters, linters, extensions
+- deleting all of the content in my user `settings.json` except for a last pair of `{}`
+- deleting all of my Visual Studio Code extensions
+- carefully bringing back the customized workspace/editor/terminal/formatting settings in my user `settings.json`
+- carefully bringing back Visual Studio Code extensions I need
+- re-introducing an `.eslintrc` with a basic config
+- re-installing of ESLint Visual Studio Code extension
+- `npm install eslint` to have it in the workspace folder and NOT globally
+- check for linting errors in `scripts.js` (due to `.eslintrc` config, none in there)
 
 ### Languages, Libraries, Frameworks
 
